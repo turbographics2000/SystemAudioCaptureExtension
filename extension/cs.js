@@ -10,10 +10,15 @@ function gUM(streamId) {
         audio:{
             mandatory: {
                 chromeMediaSource: 'system',
+            }
+        },
+        video: {
+            mandatory: {
+                chromeMediaSource: 'desktop',
                 chromeMediaSourceId: streamId
             }
         }
     }).then(stream => {
-        document.querySelector('video').srcObject = stream;
+        vid.srcObject = stream;
     });
 }
