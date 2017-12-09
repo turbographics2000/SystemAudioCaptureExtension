@@ -21,5 +21,7 @@ function gUM(streamId) {
         }
     }).then(stream => {
         vid.srcObject = stream;
+    }).catch(err => {
+        console.error(err);
     });
 }
