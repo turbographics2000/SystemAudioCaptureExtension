@@ -18,7 +18,7 @@ function gUM(streamId) {
                 chromeMediaSource: 'desktop',
                 chromeMediaSourceId: streamId
             }
-        },
+        }
     }).then(stream => {
         vid.srcObject = stream;
     });
