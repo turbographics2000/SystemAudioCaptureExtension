@@ -1,15 +1,16 @@
 chrome.runtime.sendMessage({ ready: true });
 chrome.runtime.onMessage.addListener(msg => {
-    if(msg.streamId) {
+    if (msg.streamId) {
         gUM(msg.streamId);
     }
 });
 
 function gUM(streamId) {
     navigator.mediaDevices.getUserMedia({
-        audio:{
+        audio: {
             mandatory: {
-                chromeMediaSource: 'system',
+                chromeMediaSource: 'desktop',
+                chromeMediaSourceId: streamId
             }
         },
         video: {
@@ -17,7 +18,7 @@ function gUM(streamId) {
                 chromeMediaSource: 'desktop',
                 chromeMediaSourceId: streamId
             }
-        }
+        },
     }).then(stream => {
         vid.srcObject = stream;
     });
